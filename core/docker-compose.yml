@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  java-api:
+    image: kevinalef/java-api:latest
+    container_name: java-api
+    ports:
+      - "81:8080"
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        
+  react-app:
+    image: kevinalef/react-app:latest
+    container_name: react-app
+    ports:
+      - "80:80"
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224

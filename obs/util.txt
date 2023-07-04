@@ -1,0 +1,16 @@
+
+http://localhost:3000/connections/datasources
+
+http://loki:3100
+
+http://prometheus:9090
+
+http://localhost:3000/dashboards
+
+{container_name="/react-app"} |= ``
+
+sum(count_over_time({job="fluent-bit"} |= `error` [1m])) by(container_name)
+
+sum(container_memory_usage_bytes{name!=""}) by (name) / 1024 / 1024
+
+sum(rate(container_cpu_usage_seconds_total{name!=""}[1m])) by (name) * 100

@@ -10,9 +10,9 @@ jobs:
     - name: copy file via ssh key
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: ${{ secrets.OBS_SSH_HOST }}
-        username: ${{ secrets.OBS_SSH_USER }}
+        host: ${{ secrets.GRAF_SSH_HOST }}
+        username: ${{ secrets.GRAF_SSH_USER }}
         port: ${{ secrets.PORT }}
-        key: ${{ secrets.OBS_SSH_PRIVATE_KEY }}
+        key: ${{ secrets.GRAF_SSH_PRIVATE_KEY }}
         source: "./core, ./obs"
         target: ~/Metricas
